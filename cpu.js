@@ -55,17 +55,17 @@ class CPU {
         switch (instruction) {
 
             // Move literal into r1 register
-            case 0x10: {
+            case instructions.MOV_LIT_R1: {
                 const literal = this.fetch16();
                 this.setRegister('r1', literal);
             }
             // Move literal into r2
-            case 0x11: {
+            case instructions.MOV_LIT_R2: {
                 const literal = this.fetch16();
                 this.setRegister('r2', literal);
             }
             //  Add register to register
-            case 0x12: {
+            case instructions.ADD_REG_REG: {
                 const r1 = this.fetch();
                 const r2 = this.fetch();
                 const registerValue1 = this.registerMap.getUint16(r1 * 2);
